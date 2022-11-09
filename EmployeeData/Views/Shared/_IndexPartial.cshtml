@@ -1,0 +1,39 @@
+﻿<h1 class="display-1">
+    Hemant
+</h1>
+
+@model EmployeeViewModel
+
+<div class="row d-flex justify-content-center mt-5 ">
+    <div class="col-md-4 ">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group pb-1">
+                <label asp-for="Name" class="control-label"></label>
+                <input  asp-for="Name" class="form-control" placeholder="Enter name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-1">
+                <label asp-for="Division" class="control-label"></label>
+                <br />
+                @Html.DropDownList("Division", (IEnumerable
+                <SelectListItem>)ViewBag.Division)
+            </div>
+            <div class="form-group pb-3">
+                <label asp-for="Division" class="control-label"></label>
+                <br />
+                Admin   @Html.RadioButton("Role","Admin")
+                Manager @Html.RadioButton("Role","Manager")
+                HR   @Html.RadioButton("Role","HR")
+                Tech Lead @Html.RadioButton("Role","Tech Lead")
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-dark w-100" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

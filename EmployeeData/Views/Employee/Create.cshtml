@@ -1,0 +1,50 @@
+﻿@model EmployeeData.Models.EmployeeViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script>
+<h1 class=" display-5 text-center text-dark">Add a employee into database</h1>
+<div class="row d-flex justify-content-center mt-5">
+    <div class="col-md-4 ">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group pb-1">
+                <label asp-for="Name" class="control-label fw-bold"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-1">
+                <label asp-for="Division" class="control-label fw-bold"></label>
+                <br />
+                @Html.DropDownList("Division", (List
+                <SelectListItem>)ViewBag.Division)
+            </div>
+            <div class="form-group pb-3">
+                <label asp-for="Role" class="control-label fw-bold"></label>
+                <br />
+                Admin   @Html.RadioButton("Role","Admin")
+                Manager @Html.RadioButton("Role","Manager")
+                HR   @Html.RadioButton("Role","HR")
+                Tech Lead @Html.RadioButton("Role","Tech Lead")
+            </div>
+            <div class="form-group pt-2">
+               @* <div class="w3-col s5">*@
+                    <input type="submit" value="Save" class="mb-1 w-100  w3-btn w3-padding w3-green" />
+              
+                @*</div>*@
+                @*<div class="w3-col s5">*@
+                <a asp-action="Index" class="w-100 w3-btn w3-padding w3-black">Back to List</a>
+                @*</div>*@
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

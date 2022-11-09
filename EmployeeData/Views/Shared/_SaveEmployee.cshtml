@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployeeData.Models.EmployeeViewModel
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               @* <label asp-for="Division" class="control-label"></label>
+                <br />
+                @Html.DropDownList("Division", (IEnumerable
+                <SelectListItem>)ViewBag.Division)*@
+
+                @*<label asp-for="Division" class="control-label"></label>
+                <input asp-for="Division" class="form-control" />
+                <span asp-validation-for="Division" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+               @* Admin:   @Html.RadioButton("Role","Admin")
+                Manager: @Html.RadioButton("Role","Manager")
+                HR:   @Html.RadioButton("Role","HR")
+                Tech Lead: @Html.RadioButton("Role","Tech Lead")*@
+
+                @* <label asp-for="Role" class="control-label"></label>
+                <input asp-for="Role" class="form-control" />
+                <span asp-validation-for="Role" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
